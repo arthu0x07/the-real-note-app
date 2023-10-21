@@ -4,7 +4,7 @@
 O "The Real Note App" é um aplicativo de notas excepcionalmente versátil, desenvolvido com React, projetado para aprimorar habilidades em algoritmos de busca, filtros e testes automatizados.
 ## Stack utilizada
 
-**Front-end:** React, TypeScript, MaterialUI, Styled-Components, Jest, React Testing Library
+**Front-end:** React, TypeScript, Styled-Components, Jest, React Testing Library
 
 
 
