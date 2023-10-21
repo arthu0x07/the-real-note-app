@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useDebounce } from "@hooks/useDebounce";
 
 import { ContainerInput, SearchImage, PlaceHolder, Input } from "./styles";
@@ -28,10 +28,13 @@ export function SearchInput() {
     //Make search
   }
 
-  function handleInputOnchange(e: React.ChangeEvent<HTMLInputElement>) {
-    setInputSearchText(e.target.value);
-    debouncedHandleSearch();
-  }
+  const handleInputOnchange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setInputSearchText(e.target.value);
+      debouncedHandleSearch();
+    },
+    [debouncedHandleSearch]
+  );
 
   return (
     <ContainerInput onClick={handleActiveInput} onBlur={handleInputBlur}>
