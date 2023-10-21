@@ -43,3 +43,10 @@ Para rodar os testes, rode o seguinte comando
   yarn run test
 ```
 
+
+## Deploy
+
+Para realizar o deploy utilizamos o Netlify, você pode acessá-lo no seguinte link.
+
+ - [The Real Note App](https://the-real-note-app.netlify.app/)
+
