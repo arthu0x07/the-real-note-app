@@ -18,9 +18,7 @@ export function SearchInput() {
     handleSearch();
 
     function handleDisableInput() {
-      if (!inputSearchText) {
-        setIsInputActive(false);
-      }
+      Boolean(!inputSearchText) && setIsInputActive(false);
     }
   }
 
