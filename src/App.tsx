@@ -5,10 +5,10 @@ import { GlobalStyles } from "@components/GlobalStyles";
 function App() {
   return (
     <>
-      <Wrapper>
-        <Home />
-      </Wrapper>
-      <GlobalStyles />
+        <Wrapper>
+          <Home />
+        </Wrapper>
+        <GlobalStyles />
     </>
   );
 }

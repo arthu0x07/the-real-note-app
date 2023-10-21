@@ -26,7 +26,9 @@
       "@components/*": ["./components/*"],
       "@pages/*": ["./pages/*"],
       "@assets/*": ["./assets/*"],
-      "@mocks/*": ["./mocks/*"]
+      "@mocks/*": ["./mocks/*"],
+      "@styles/*": ["./styles/*"]
+
     }
   },
   "include": ["src"],
