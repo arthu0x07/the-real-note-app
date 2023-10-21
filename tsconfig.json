@@ -27,7 +27,8 @@
       "@pages/*": ["./pages/*"],
       "@assets/*": ["./assets/*"],
       "@mocks/*": ["./mocks/*"],
-      "@styles/*": ["./styles/*"]
+      "@styles/*": ["./styles/*"],
+      "@hooks/*": ["./hooks/*"]
 
     }
   },

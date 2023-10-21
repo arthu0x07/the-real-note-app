@@ -1,0 +1,47 @@
+import { useState } from "react";
+import { useDebounce } from "@hooks/useDebounce";
+
+import { ContainerInput, SearchImage, PlaceHolder, Input } from "./styles";
+import Search from "@assets/search.svg";
+
+export function SearchInput() {
+  const [isInputActive, setIsInputActive] = useState<boolean>(false);
+  const [inputSearchText, setInputSearchText] = useState<string>("");
+  const debouncedHandleSearch = useDebounce(handleSearch, 2000);
+
+  function handleActiveInput() {
+    setIsInputActive(true);
+  }
+
+  function handleInputBlur() {
+    handleDisableInput();
+    handleSearch();
+
+    function handleDisableInput() {
+      if (!inputSearchText) {
+        setIsInputActive(false);
+      }
+    }
+  }
+
+  function handleSearch() {
+    //Make search
+  }
+
+  function handleInputOnchange(e: React.ChangeEvent<HTMLInputElement>) {
+    setInputSearchText(e.target.value);
+    debouncedHandleSearch();
+  }
+
+  return (
+    <ContainerInput onClick={handleActiveInput} onBlur={handleInputBlur}>
+      {!isInputActive && (
+        <>
+          <SearchImage src={Search} alt="Icone de Pesquisa" />
+          <PlaceHolder>Search Notes...</PlaceHolder>
+        </>
+      )}
+      <Input onChange={handleInputOnchange} />
+    </ContainerInput>
+  );
+}

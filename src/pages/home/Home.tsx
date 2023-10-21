@@ -1,5 +1,11 @@
+import { SearchInput } from "./components/SearchInput";
+
+import { HomeContainer } from "./styles";
+
 export function Home() {
   return (
-      <h1>HomePage</h1>
+    <HomeContainer>
+      <SearchInput />
+    </HomeContainer>
   );
 }
