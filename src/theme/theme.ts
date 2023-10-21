@@ -4,6 +4,7 @@ const theme = {
   colors: {
     main_bg_color: "#F5F5F5",
     highlight_bg_color: "#2196F3",
+    secondary_bg_color: "#FFFFFF",
 
     highlight_shadow_color: "#00000029",
     main_text_color: "#00000099",
