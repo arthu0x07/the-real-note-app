@@ -1,5 +1,5 @@
-import { NotesCategory } from "./components/NotesCategory";
-import { SearchInput } from "./components/SearchInput";
+import { NotesCategory } from "@components/NotesCategory";
+import { SearchInput } from "@components/SearchInput";
 
 import { HomeContainer, ContainerSubFilter } from "./styles";
 

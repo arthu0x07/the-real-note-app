@@ -1,0 +1,1 @@
+export { NotesCategory } from "./NotesCategory";
