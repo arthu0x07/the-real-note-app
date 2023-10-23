@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const ContainerInput = styled.div(
+export const ContainerInput = styled.section(
   ({ theme }) => css`
     width: 100%;
     max-width: 824px;

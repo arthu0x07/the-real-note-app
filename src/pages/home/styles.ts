@@ -10,7 +10,7 @@ export const HomeContainer = styled.div`
   margin-top: 5rem;
 `;
 
-export const ContainerSubFilter = styled.div`
+export const ContainerSubFilter = styled.section`
   display: flex;
   flex-direction: row;
   align-items: center;
