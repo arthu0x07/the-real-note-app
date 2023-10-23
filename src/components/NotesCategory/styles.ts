@@ -20,6 +20,7 @@ export const ContainerButtonCategory = styled.div<IContainerButtonCategory>(
     height: 3.6rem;
     background-color: ${isActive && CategoryColorEnum[title]};
     position: relative;
+    cursor: pointer;
   `
 );
 
