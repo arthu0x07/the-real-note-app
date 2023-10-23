@@ -15,7 +15,7 @@ export function SearchInput() {
 
   function handleInputBlur() {
     handleDisableInput();
-    handleSearch();
+    handleSearch(); 
 
     function handleDisableInput() {
       Boolean(!inputSearchText) && setIsInputActive(false);

@@ -28,8 +28,9 @@
       "@assets/*": ["./assets/*"],
       "@mocks/*": ["./mocks/*"],
       "@styles/*": ["./styles/*"],
-      "@hooks/*": ["./hooks/*"]
-
+      "@hooks/*": ["./hooks/*"],
+      "@theme/*": ["./theme/*"],
+      "@types/*": ["./types/*"]
     }
   },
   "include": ["src"],

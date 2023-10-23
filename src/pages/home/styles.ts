@@ -9,3 +9,12 @@ export const HomeContainer = styled.div`
 
   margin-top: 5rem;
 `;
+
+export const ContainerSubFilter = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 2.3rem;
+
+  width: 100%;
+`;
