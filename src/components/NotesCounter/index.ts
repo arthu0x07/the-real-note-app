@@ -1,0 +1,1 @@
+export { NotesCounter } from "./NotesCounter";
