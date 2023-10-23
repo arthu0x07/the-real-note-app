@@ -1,5 +1,6 @@
 import { NotesCategory } from "@components/NotesCategory";
 import { SearchInput } from "@components/SearchInput";
+import { ButtonAddNote } from "@components/ButtonAddNote";
 
 import { HomeContainer, ContainerSubFilter } from "./styles";
 
@@ -9,6 +10,7 @@ export function Home() {
       <SearchInput />
       <ContainerSubFilter>
         <NotesCategory />
+        <ButtonAddNote />
       </ContainerSubFilter>
     </HomeContainer>
   );
