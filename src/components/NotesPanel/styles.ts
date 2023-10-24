@@ -7,4 +7,3 @@ export const NotesPanelContainer = styled.div`
   align-items: start;
   margin-top: 3.2rem;
 `;
-  
