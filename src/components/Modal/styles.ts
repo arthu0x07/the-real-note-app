@@ -11,10 +11,10 @@ const InputStyle = css`
 
   font-size: 1.6rem;
   font-weight: 500;
-  color: #00000099;
+  color: ${theme.colors.main_text_color};
 `;
 
-export const ModalContainer = styled.dialog`
+export const ModalContainer = styled.dialog(({ theme }) => css`
   width: 824px;
   height: 458px;
 
@@ -31,9 +31,9 @@ export const ModalContainer = styled.dialog`
 
   border: none !important;
   box-shadow: 0px 3px 6px ${theme.colors.highlight_shadow_color};
-`;
+`);
 
-export const BackdropContainer = styled.div`
+export const BackdropContainer = styled.div(({ theme }) => css`
   position: absolute;
   top: 0px;
   z-index: 2;
@@ -44,9 +44,9 @@ export const BackdropContainer = styled.div`
   backdrop-filter: blur(50px);
   opacity: 0.4;
   background: ${theme.colors.main_text_color} 0% 0% no-repeat padding-box;
-`;
+`);
 
-export const HeaderModal = styled.div`
+export const HeaderModal = styled.div(({ theme }) => css`
   width: 100%;
 
   display: flex;
@@ -56,15 +56,15 @@ export const HeaderModal = styled.div`
   padding: 1.7rem 3.4rem;
 
   border-bottom: 1px solid ${theme.colors.highlight_shadow_color};
-`;
+`);
 
-export const TitleModal = styled.h2`
+export const TitleModal = styled.h2(({ theme }) => css`
   font-size: 2.4rem;
   letter-spacing: 0px;
   font-weight: 400;
   color: ${theme.colors.main_text_color};
   opacity: 0.8;
-`;
+`);
 
 export const MainModal = styled.form`
   width: 100%;
@@ -131,7 +131,7 @@ export const ContainerDropDown = styled.div`
   padding: 14px 16px;
 `;
 
-export const SelectedItem = styled.div`
+export const SelectedItem = styled.div(({ theme }) => css`
   margin-right: 10.5rem;
 
   h2 {
@@ -140,14 +140,14 @@ export const SelectedItem = styled.div`
     font-weight: 400;
     color: ${theme.colors.main_text_color};
   }
-`;
+`);
 
 export const ArrowImage = styled.img`
   width: 10px;
   height: 5px;
 `;
 
-export const Option = styled.div`
+export const Option = styled.div(({ theme }) => css`
   display: flex;
   justify-content: flex-start;
   align-content: start;
@@ -171,9 +171,9 @@ export const Option = styled.div`
       background-color: ${theme.colors.modal_bg_input_highlight_color};
     }
   }
-`;
+`);
 
-export const ContainerActions = styled.div`
+export const ContainerActions = styled.div(({ theme }) => css`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -200,4 +200,4 @@ export const ContainerActions = styled.div`
       background-color: ${theme.colors.modal_bg_input_highlight_color};
     }
   }
-`;
+`);
