@@ -7,13 +7,16 @@ import { HomeContainer, ContainerSubFilter } from "./styles";
 
 export function Home() {
   return (
-    <HomeContainer>
-      <SearchInput />
-      <ContainerSubFilter>
-        <NotesCategory />
-        <ButtonAddNote />
-      </ContainerSubFilter>
-      <NotesPanel />
-    </HomeContainer>
+    <>
+      <HomeContainer>
+        <SearchInput />
+        <ContainerSubFilter>
+          <NotesCategory />
+          <ButtonAddNote />
+        </ContainerSubFilter>
+        <NotesPanel />
+      </HomeContainer>
+      {/* <Modal /> */}
+    </>
   );
 }
