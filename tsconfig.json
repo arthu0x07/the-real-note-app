@@ -30,7 +30,8 @@
       "@styles/*": ["./styles/*"],
       "@hooks/*": ["./hooks/*"],
       "@theme/*": ["./theme/*"],
-      "@types/*": ["./types/*"]
+      "@types/*": ["./types/*"],
+      "@context/*": ["./context/*"],
     }
   },
   "include": ["src"],
