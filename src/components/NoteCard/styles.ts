@@ -3,14 +3,14 @@ import theme from "theme/theme";
 import CategoryColorEnum from "types/CategoryColors";
 
 export const ContainerCardNotes = styled.div<IContainerCardNotes>(
-  ({ title }) => css`
+  ({ category }) => css`
     flex-basis: 49%;
     flex-shrink: 1;
     flex-grow: 1;
     max-width: 49%;
     padding: 2rem 1.6rem;
     border-radius: 0.4rem;
-    background-color: ${CategoryColorEnum[title]};
+    background-color: ${CategoryColorEnum[category]};
   `
 );
 
@@ -85,5 +85,5 @@ export const DateCard = styled.p<{ isChecked?: boolean }>(
 );
 
 interface IContainerCardNotes {
-  title: string;
+  category: string;
 }
