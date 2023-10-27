@@ -1,40 +1,93 @@
+import { useModal } from "@hooks/useModal";
+import { useNotes } from "@hooks/useNotes";
+
 import * as S from "./styles";
 
 import Arrow from "@assets/back-up-down.svg";
 
 export function Modal() {
+  const { isOpen, modalData, closeModal, setModalData } = useModal();
+  const { editNote } = useNotes();
+
+  function handleCloseModal() {
+    closeModal();
+  }
+
+  function handleChangeModalData(target: any, field: keyof INotes) {
+    let value;
+
+    field === "category"
+      ? (value = target?.innerText)
+      : (value = target?.value);
+
+    setModalData({ ...modalData, [field]: value });
+  }
+
+  function handleSaveNote() {
+    editNote(String(modalData.id), modalData);
+  }
+
   return (
     <>
-      <S.ModalContainer open={false}>
+      <S.ModalContainer open={isOpen}>
         <S.HeaderModal>
           <S.TitleModal>Add Note</S.TitleModal>
         </S.HeaderModal>
 
         <S.MainModal>
           <S.ContainerTitleDescription>
-            <S.InputTitle value="Read a book" />
-            <S.InputDescription value="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea asanctus est Lorem ipsum dolor" />
+            <S.InputTitle
+              value={modalData?.title}
+              onChange={({ target }) => handleChangeModalData(target, "title")}
+            />
+            <S.InputDescription
+              value={modalData?.description}
+              onChange={({ target }) =>
+                handleChangeModalData(target, "description")
+              }
+            />
           </S.ContainerTitleDescription>
 
           <S.ContainerCategory>
             <S.ContainerShadowDropdown>
               <S.ContainerDropDown>
                 <S.SelectedItem>
-                  <h2>Select Category</h2>
+                  <h2>{modalData.category}</h2>
                 </S.SelectedItem>
                 <S.ArrowImage src={Arrow} />
               </S.ContainerDropDown>
 
               <S.Option className="options">
-                <button>Home</button>
-                <button>Work</button>
-                <button>Personal</button>
+                <S.CategoryButton
+                  isActive={modalData.category === "Home"}
+                  onClick={({ target }) =>
+                    handleChangeModalData(target, "category")
+                  }
+                >
+                  Home
+                </S.CategoryButton>
+                <S.CategoryButton
+                  isActive={modalData.category === "Work"}
+                  onClick={({ target }) =>
+                    handleChangeModalData(target, "category")
+                  }
+                >
+                  Work
+                </S.CategoryButton>
+                <S.CategoryButton
+                  isActive={modalData.category === "Personal"}
+                  onClick={({ target }) =>
+                    handleChangeModalData(target, "category")
+                  }
+                >
+                  Personal
+                </S.CategoryButton>
               </S.Option>
             </S.ContainerShadowDropdown>
 
             <S.ContainerActions>
-              <button>Cancel</button>
-              <button>Add</button>
+              <button onClick={handleCloseModal}>Cancel</button>
+              <button onClick={handleSaveNote}>Add</button>
             </S.ContainerActions>
           </S.ContainerCategory>
         </S.MainModal>

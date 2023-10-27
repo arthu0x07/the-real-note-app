@@ -1,17 +1,16 @@
 import styled, { css } from "styled-components";
-import theme from "theme/theme";
 
 const InputStyle = css`
   width: 100%;
   height: 44px;
-  background-color: ${theme.colors.modal_bg_input_color};
+  background-color: ${({ theme }) => theme.colors.modal_bg_input_color};
 
   border-radius: 4px 4px 0px 0px;
   border: none;
 
   font-size: 1.6rem;
   font-weight: 500;
-  color: ${theme.colors.main_text_color};
+  color: ${({ theme }) => theme.colors.main_text_color};
 `;
 
 export const ModalContainer = styled.dialog(
@@ -27,7 +26,6 @@ export const ModalContainer = styled.dialog(
 
     border: none !important;
     box-shadow: 0px 3px 6px ${theme.colors.highlight_shadow_color};
-
   `
 );
 
@@ -55,7 +53,7 @@ export const TitleModal = styled.h2(
   `
 );
 
-export const MainModal = styled.form`
+export const MainModal = styled.div`
   width: 100%;
 
   display: flex;
@@ -138,29 +136,34 @@ export const ArrowImage = styled.img`
 `;
 
 export const Option = styled.div(
-  ({ theme }) => css`
+  () => css`
     display: flex;
     justify-content: flex-start;
     align-content: start;
     flex-direction: column;
     width: 100%;
+  `
+);
 
-    button {
-      padding: 0.6rem 1.6rem;
-      border: none;
-      text-align: left;
-      font-size: 1.4rem;
-      letter-spacing: 0px;
-      font-weight: 400;
-      color: ${theme.colors.main_text_color};
+export const CategoryButton = styled.button<{ isActive: boolean }>(
+  ({ isActive, theme }) => css`
+    padding: 0.6rem 1.6rem;
+    border: none;
+    text-align: left;
+    font-size: 1.4rem;
+    letter-spacing: 0px;
+    font-weight: 400;
+    color: ${theme.colors.main_text_color};
 
-      transition: background-color 0.5s ease-out;
-      text-decoration: none;
-      background-color: transparent;
+    transition: background-color 0.5s ease-out;
+    text-decoration: none;
+    background-color: transparent;
 
-      &:hover {
-        background-color: ${theme.colors.modal_bg_input_highlight_color};
-      }
+    background-color: ${isActive &&
+    theme.colors.modal_bg_input_highlight_color};
+
+    &:hover {
+      background-color: ${theme.colors.modal_bg_input_highlight_color};
     }
   `
 );
