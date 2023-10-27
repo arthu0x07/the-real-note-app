@@ -14,57 +14,46 @@ const InputStyle = css`
   color: ${theme.colors.main_text_color};
 `;
 
-export const ModalContainer = styled.dialog(({ theme }) => css`
-  width: 824px;
-  height: 458px;
+export const ModalContainer = styled.dialog(
+  ({ theme }) => css`
+    width: 824px;
+    height: 458px;
 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -65%);
-  z-index: 3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -65%);
+    z-index: 3;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+    border: none !important;
+    box-shadow: 0px 3px 6px ${theme.colors.highlight_shadow_color};
 
-  border: none !important;
-  box-shadow: 0px 3px 6px ${theme.colors.highlight_shadow_color};
-`);
+  `
+);
 
-export const BackdropContainer = styled.div(({ theme }) => css`
-  position: absolute;
-  top: 0px;
-  z-index: 2;
+export const HeaderModal = styled.div(
+  ({ theme }) => css`
+    width: 100%;
 
-  width: 100vw;
-  height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 
-  backdrop-filter: blur(50px);
-  opacity: 0.4;
-  background: ${theme.colors.main_text_color} 0% 0% no-repeat padding-box;
-`);
+    padding: 1.7rem 3.4rem;
 
-export const HeaderModal = styled.div(({ theme }) => css`
-  width: 100%;
+    border-bottom: 1px solid ${theme.colors.highlight_shadow_color};
+  `
+);
 
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-
-  padding: 1.7rem 3.4rem;
-
-  border-bottom: 1px solid ${theme.colors.highlight_shadow_color};
-`);
-
-export const TitleModal = styled.h2(({ theme }) => css`
-  font-size: 2.4rem;
-  letter-spacing: 0px;
-  font-weight: 400;
-  color: ${theme.colors.main_text_color};
-  opacity: 0.8;
-`);
+export const TitleModal = styled.h2(
+  ({ theme }) => css`
+    font-size: 2.4rem;
+    letter-spacing: 0px;
+    font-weight: 400;
+    color: ${theme.colors.main_text_color};
+    opacity: 0.8;
+  `
+);
 
 export const MainModal = styled.form`
   width: 100%;
@@ -131,73 +120,79 @@ export const ContainerDropDown = styled.div`
   padding: 14px 16px;
 `;
 
-export const SelectedItem = styled.div(({ theme }) => css`
-  margin-right: 10.5rem;
+export const SelectedItem = styled.div(
+  ({ theme }) => css`
+    margin-right: 10.5rem;
 
-  h2 {
-    font-size: 1.4rem;
-    letter-spacing: 0px;
-    font-weight: 400;
-    color: ${theme.colors.main_text_color};
-  }
-`);
+    h2 {
+      font-size: 1.4rem;
+      letter-spacing: 0px;
+      font-weight: 400;
+      color: ${theme.colors.main_text_color};
+    }
+  `
+);
 
 export const ArrowImage = styled.img`
   width: 10px;
   height: 5px;
 `;
 
-export const Option = styled.div(({ theme }) => css`
-  display: flex;
-  justify-content: flex-start;
-  align-content: start;
-  flex-direction: column;
-  width: 100%;
+export const Option = styled.div(
+  ({ theme }) => css`
+    display: flex;
+    justify-content: flex-start;
+    align-content: start;
+    flex-direction: column;
+    width: 100%;
 
-  button {
-    padding: 0.6rem 1.6rem;
-    border: none;
-    text-align: left;
-    font-size: 1.4rem;
-    letter-spacing: 0px;
-    font-weight: 400;
-    color: ${theme.colors.main_text_color};
+    button {
+      padding: 0.6rem 1.6rem;
+      border: none;
+      text-align: left;
+      font-size: 1.4rem;
+      letter-spacing: 0px;
+      font-weight: 400;
+      color: ${theme.colors.main_text_color};
 
-    transition: background-color 0.5s ease-out;
-    text-decoration: none;
-    background-color: transparent;
+      transition: background-color 0.5s ease-out;
+      text-decoration: none;
+      background-color: transparent;
 
-    &:hover {
-      background-color: ${theme.colors.modal_bg_input_highlight_color};
+      &:hover {
+        background-color: ${theme.colors.modal_bg_input_highlight_color};
+      }
     }
-  }
-`);
+  `
+);
 
-export const ContainerActions = styled.div(({ theme }) => css`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 2.4rem;
+export const ContainerActions = styled.div(
+  ({ theme }) => css`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2.4rem;
 
-  align-self: flex-end;
+    align-self: flex-end;
 
-  position: absolute;
-  bottom: 0;
+    position: absolute;
+    bottom: 0;
 
-  > button {
-    border: none;
-    font-size: 1.4rem;
-    font-family: "Roboto";
-    font-weight: 500;
-    letter-spacing: 1px;
-    color: ${theme.colors.actions_text_color};
-    text-transform: uppercase;
-    background-color: transparent;
-    padding: 0.6rem 1.6rem;
-    transition: background-color 0.5s ease-out;
+    > button {
+      border: none;
+      font-size: 1.4rem;
+      font-family: "Roboto";
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: ${theme.colors.actions_text_color};
+      text-transform: uppercase;
+      background-color: transparent;
+      padding: 0.6rem 1.6rem;
+      transition: background-color 0.5s ease-out;
 
-    &:hover {
-      background-color: ${theme.colors.modal_bg_input_highlight_color};
+      &:hover {
+        background-color: ${theme.colors.modal_bg_input_highlight_color};
+      }
     }
-  }
-`);
+  `
+);

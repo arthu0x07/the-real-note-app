@@ -5,7 +5,7 @@ import Arrow from "@assets/back-up-down.svg";
 export function Modal() {
   return (
     <>
-      <S.ModalContainer open={Boolean(false)} className="test">
+      <S.ModalContainer open={false}>
         <S.HeaderModal>
           <S.TitleModal>Add Note</S.TitleModal>
         </S.HeaderModal>
@@ -39,7 +39,6 @@ export function Modal() {
           </S.ContainerCategory>
         </S.MainModal>
       </S.ModalContainer>
-      <S.BackdropContainer />
     </>
   );
 }

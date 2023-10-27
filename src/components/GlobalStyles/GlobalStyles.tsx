@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import theme from "theme/theme";
 
 export const GlobalStyles = createGlobalStyle`
 	*{
@@ -22,4 +23,11 @@ export const GlobalStyles = createGlobalStyle`
     body{
         background-color: var(--main-bg-color);
     }
+
+    dialog::backdrop {
+        backdrop-filter: blur(50px);
+    opacity: 0.4;
+    background: ${theme.colors.main_text_color} 0% 0% no-repeat padding-box;
+}
+
 `;
