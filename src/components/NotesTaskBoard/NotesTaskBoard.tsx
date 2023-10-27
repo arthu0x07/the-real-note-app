@@ -1,11 +1,9 @@
-import { useContext } from "react";
-import { NotesContext } from "@context/NotesProvider";
-
 import * as S from "./styles";
 import { NoteCard } from "components/NoteCard";
+import { useNotes } from "@hooks/useNotes";
 
 export function NotesTaskBoard() {
-  const { notes } = useContext(NotesContext);
+  const { notes } = useNotes();
 
   return (
     <S.NotesTaskBoardContainer>
@@ -25,7 +23,7 @@ export function NotesTaskBoard() {
             />
           );
         }
-        
+
         return renderedNotes;
       })()}
     </S.NotesTaskBoardContainer>
