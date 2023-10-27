@@ -97,7 +97,6 @@ export const ContainerCategory = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  position: relative;
 
   height: 100%;
 
@@ -176,7 +175,7 @@ export const ContainerActions = styled.div(
     align-self: flex-end;
 
     position: absolute;
-    bottom: 0;
+    bottom: 2.5rem;
 
     > button {
       border: none;
