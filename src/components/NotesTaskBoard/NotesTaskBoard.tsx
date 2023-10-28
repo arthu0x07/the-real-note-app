@@ -1,9 +1,11 @@
 import * as S from "./styles";
 import { NoteCard } from "components/NoteCard";
 import { useNotes } from "@hooks/useNotes";
+import { useModal } from "hooks/useModal";
 
 export function NotesTaskBoard() {
   const { notes } = useNotes();
+  const { openModal } = useModal();
 
   return (
     <S.NotesTaskBoardContainer>
@@ -20,6 +22,7 @@ export function NotesTaskBoard() {
               title={title}
               description={description}
               isChecked={isChecked}
+              handleEdit={openModal}
             />
           );
         }

@@ -6,11 +6,20 @@ import Edit from "@assets/edit.svg";
 import Trash from "@assets/trash.svg";
 
 export function NoteCard({
+  id,
   category,
   title,
   description,
   isChecked,
-}: INotes) {
+  handleEdit,
+}: NoteCardProps) {
+  const allCardData = {
+    id,
+    category,
+    title,
+    description,
+    isChecked,
+  };
 
   return (
     <S.ContainerCardNotes category={category}>
@@ -20,7 +29,7 @@ export function NoteCard({
         </S.ContainerCheckbox>
         <S.TitleCard isChecked={isChecked}>{title}</S.TitleCard>
         <S.ContainerOptions>
-          <S.ImagesButtons src={Edit} />
+          <S.ImagesButtons src={Edit} onClick={() => handleEdit(allCardData)} />
           <S.ImagesButtons src={Trash} />
         </S.ContainerOptions>
       </S.HeaderCard>
@@ -30,3 +39,5 @@ export function NoteCard({
     </S.ContainerCardNotes>
   );
 }
+
+type NoteCardProps = INotes & { handleEdit: (data: INotes) => void };

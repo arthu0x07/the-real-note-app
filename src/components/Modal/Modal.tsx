@@ -25,6 +25,7 @@ export function Modal() {
 
   function handleSaveNote() {
     editNote(String(modalData.id), modalData);
+    closeModal();
   }
 
   return (

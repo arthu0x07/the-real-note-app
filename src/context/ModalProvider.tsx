@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const ModalContext = createContext({} as IContextProviderValue);
 
 export const ModalProvider = ({ children }: IContextProviderProps) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [modalData, setModalData] = useState<INotes>({} as INotes);
 
 
