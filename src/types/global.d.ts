@@ -1,5 +1,5 @@
 declare interface INotes {
-  id?: string;
+  id?: number;
   category: string;
   title: string;
   description: string;

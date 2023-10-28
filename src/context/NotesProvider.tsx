@@ -10,13 +10,14 @@ export function NotesProvider({ children }: INotesProviderProps) {
     notes: notes,
     createNewNote: createNewNote,
     editNote: editNote,
+    deleteNote: deleteNote,
   };
 
   function createNewNote({ category, title, description }: INotes) {
     setNotes([
       ...notes,
       {
-        id: String(notes.length),
+        id: notes.length,
         category: category,
         title: title,
         description: description,
@@ -26,7 +27,7 @@ export function NotesProvider({ children }: INotesProviderProps) {
     ]);
   }
 
-  function editNote(id: string, updatedNote: INotes) {
+  function editNote(id: INotes["id"], updatedNote: INotes) {
     let noteToEdit = null;
 
     for (const note of notes) {
@@ -57,6 +58,26 @@ export function NotesProvider({ children }: INotesProviderProps) {
     }
   }
 
+  function deleteNote(id: INotes["id"]) {
+    const newArrayOfNotes = [] as INotes[];
+    let newIndex = 0;
+
+    for (let i = 0; i < notes.length; i++) {
+      if (notes[i].id !== id) {
+        newArrayOfNotes[newIndex] = notes[i];
+        newIndex++;
+      }
+
+      console.table({
+        index: i,
+        state: notes[i],
+        newState: newArrayOfNotes[i],
+      });
+    }
+
+    setNotes(newArrayOfNotes);
+  }
+
   return (
     <NotesContext.Provider value={providerValue}>
       {children}
@@ -67,7 +88,8 @@ export function NotesProvider({ children }: INotesProviderProps) {
 interface INotesProviderValue {
   notes: INotes[];
   createNewNote({ id, category, title, description }: INotes): void;
-  editNote: (id: string, updatedNote: INotes) => void;
+  editNote: (id: INotes["id"], updatedNote: INotes) => void;
+  deleteNote: (id: INotes["id"]) => void;
 }
 
 interface INotesProviderProps {

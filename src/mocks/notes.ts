@@ -1,6 +1,6 @@
 export const mockNotes: INotes[] = [
   {
-    id: "1",
+    id: new Date("2023-02-01").getTime(),
     category: "Work",
     title: "Reunião de equipe",
     description: "Reunião para discutir o andamento do projeto X.",
@@ -8,7 +8,7 @@ export const mockNotes: INotes[] = [
     isChecked: true,
   },
   {
-    id: "2",
+    id: new Date("2023-02-02").getTime(),
     category: "Home",
     title: "Comprar mantimentos",
     description: "Comprar leite, ovos, pão e frutas.",
@@ -16,7 +16,7 @@ export const mockNotes: INotes[] = [
     isChecked: true,
   },
   {
-    id: "3",
+    id: new Date("2023-02-03").getTime(),
     category: "Personal",
     title: "Assistir a um filme",
     description: "Assistir ao filme 'O Poderoso Chefão'.",
@@ -24,7 +24,7 @@ export const mockNotes: INotes[] = [
     isChecked: false,
   },
   {
-    id: "4",
+    id: new Date("2023-03-04").getTime(),
     category: "Work",
     title: "Estudar para o exame",
     description: "Revisar apontamentos e fazer exercícios práticos.",

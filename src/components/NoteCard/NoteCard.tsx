@@ -12,6 +12,7 @@ export function NoteCard({
   description,
   isChecked,
   handleEdit,
+  handleDelete,
 }: NoteCardProps) {
   const allCardData = {
     id,
@@ -30,7 +31,7 @@ export function NoteCard({
         <S.TitleCard isChecked={isChecked}>{title}</S.TitleCard>
         <S.ContainerOptions>
           <S.ImagesButtons src={Edit} onClick={() => handleEdit(allCardData)} />
-          <S.ImagesButtons src={Trash} />
+          <S.ImagesButtons src={Trash} onClick={() => handleDelete(id)} />
         </S.ContainerOptions>
       </S.HeaderCard>
 
@@ -40,4 +41,7 @@ export function NoteCard({
   );
 }
 
-type NoteCardProps = INotes & { handleEdit: (data: INotes) => void };
+type NoteCardProps = INotes & {
+  handleEdit: (data: INotes) => void;
+  handleDelete: (id: INotes["id"]) => void;
+};

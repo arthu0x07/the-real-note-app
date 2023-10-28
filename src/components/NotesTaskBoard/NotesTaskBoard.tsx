@@ -4,7 +4,7 @@ import { useNotes } from "@hooks/useNotes";
 import { useModal } from "hooks/useModal";
 
 export function NotesTaskBoard() {
-  const { notes } = useNotes();
+  const { notes, deleteNote } = useNotes();
   const { openModal } = useModal();
 
   return (
@@ -23,6 +23,7 @@ export function NotesTaskBoard() {
               description={description}
               isChecked={isChecked}
               handleEdit={openModal}
+              handleDelete={deleteNote}
             />
           );
         }
