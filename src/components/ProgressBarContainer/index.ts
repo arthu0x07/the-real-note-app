@@ -1,1 +1,0 @@
-export { NotesProgressBar } from "./NotesProgressBar";
