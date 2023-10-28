@@ -4,6 +4,7 @@ import EmptyCheckbox from "@assets/empty-checkbox.svg";
 import FillCheckbox from "@assets/fill-checkbox.svg";
 import Edit from "@assets/edit.svg";
 import Trash from "@assets/trash.svg";
+import { DateToMaskDate } from "utils/data";
 
 export function NoteCard({
   id,
@@ -11,6 +12,7 @@ export function NoteCard({
   title,
   description,
   isChecked,
+  createdAt,
   handleEdit,
   handleDelete,
   handleToggleCheckbox,
@@ -22,6 +24,8 @@ export function NoteCard({
     description,
     isChecked,
   };
+
+  const formatedDate = DateToMaskDate(createdAt);
 
   return (
     <S.ContainerCardNotes category={category}>
@@ -41,7 +45,7 @@ export function NoteCard({
       </S.HeaderCard>
 
       <S.DescriptionCard isChecked={isChecked}>{description}</S.DescriptionCard>
-      <S.DateCard isChecked={isChecked}>Jan 21, 2021</S.DateCard>
+      <S.DateCard isChecked={isChecked}>{formatedDate}</S.DateCard>
     </S.ContainerCardNotes>
   );
 }

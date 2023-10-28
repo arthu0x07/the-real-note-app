@@ -13,7 +13,7 @@ export function NotesTaskBoard() {
         const renderedNotes = [];
 
         for (let i = 0; i < notes.length; i++) {
-          const { id, category, title, description, isChecked } = notes[i];
+          const { id, category, title, description, isChecked, createdAt } = notes[i];
 
           renderedNotes[renderedNotes.length] = (
             <NoteCard
@@ -22,6 +22,7 @@ export function NotesTaskBoard() {
               title={title}
               description={description}
               isChecked={isChecked}
+              createdAt={createdAt}
               handleEdit={openModal}
               handleDelete={deleteNote}
               handleToggleCheckbox={editNote}
