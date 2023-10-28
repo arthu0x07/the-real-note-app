@@ -1,5 +1,23 @@
+import { NotesCategory } from "@components/NotesCategory";
+import { SearchInput } from "@components/SearchInput";
+import { ButtonAddNote } from "@components/ButtonAddNote";
+import { NotesPanel } from "@components/NotesPanel";
+import { Modal } from "@components/Modal/Modal";
+
+import { HomeContainer, ContainerSubFilter } from "./styles";
+
 export function Home() {
   return (
-      <h1>HomePage</h1>
+    <>
+      <HomeContainer>
+        <SearchInput />
+        <ContainerSubFilter>
+          <NotesCategory />
+          <ButtonAddNote />
+        </ContainerSubFilter>
+        <NotesPanel />
+      </HomeContainer>
+      <Modal />
+    </>
   );
 }
