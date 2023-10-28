@@ -13,6 +13,7 @@ export function NoteCard({
   isChecked,
   handleEdit,
   handleDelete,
+  handleToggleCheckbox,
 }: NoteCardProps) {
   const allCardData = {
     id,
@@ -25,7 +26,11 @@ export function NoteCard({
   return (
     <S.ContainerCardNotes category={category}>
       <S.HeaderCard>
-        <S.ContainerCheckbox>
+        <S.ContainerCheckbox
+          onClick={() =>
+            handleToggleCheckbox(id, { ...allCardData, isChecked: !isChecked })
+          }
+        >
           <S.ImagesButtons src={isChecked ? FillCheckbox : EmptyCheckbox} />
         </S.ContainerCheckbox>
         <S.TitleCard isChecked={isChecked}>{title}</S.TitleCard>
@@ -44,4 +49,5 @@ export function NoteCard({
 type NoteCardProps = INotes & {
   handleEdit: (data: INotes) => void;
   handleDelete: (id: INotes["id"]) => void;
+  handleToggleCheckbox: (id: INotes["id"], updatedNote: INotes) => void;
 };
