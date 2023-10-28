@@ -115,15 +115,13 @@ export const ContainerCategory = styled.div`
   height: 100%;
 
   cursor: pointer;
-
-  &:hover .options {
-    display: flex;
-  }
 `;
 
 export const ContainerShadowDropdown = styled.div`
   box-shadow: 0px 5px 5px #00000033;
-  padding-bottom: 9px;
+  &:hover .options {
+    display: flex;
+  }
 `;
 
 export const ContainerDropDown = styled.div`
@@ -153,7 +151,7 @@ export const ArrowImage = styled.img`
 
 export const Option = styled.div(
   () => css`
-    display: flex;
+    display: none;
     justify-content: flex-start;
     align-content: start;
     flex-direction: column;
@@ -180,6 +178,10 @@ export const CategoryButton = styled.button<{ isActive: boolean }>(
 
     &:hover {
       background-color: ${theme.colors.modal_bg_input_highlight_color};
+    }
+
+    &:last-child {
+      margin-bottom: 10px;
     }
   `
 );
