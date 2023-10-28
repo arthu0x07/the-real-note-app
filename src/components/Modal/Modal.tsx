@@ -92,6 +92,8 @@ export function Modal() {
           </S.ContainerCategory>
         </S.MainModal>
       </S.ModalContainer>
+
+      {isOpen && <S.BackdropContainer />}
     </>
   );
 }

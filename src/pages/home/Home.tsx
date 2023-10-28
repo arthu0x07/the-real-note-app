@@ -17,7 +17,6 @@ export function Home() {
         </ContainerSubFilter>
         <NotesPanel />
       </HomeContainer>
-
       <Modal />
     </>
   );

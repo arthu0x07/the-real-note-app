@@ -19,13 +19,29 @@ export const ModalContainer = styled.dialog(
     height: 458px;
 
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
-    transform: translate(-50%, -65%);
-    z-index: 3;
+    transform: translate(-50%, -50%);
+    z-index: 4;
 
     border: none !important;
     box-shadow: 0px 3px 6px ${theme.colors.highlight_shadow_color};
+  `
+);
+
+export const BackdropContainer = styled.div(
+  ({ theme }) => css`
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 3;
+
+    width: 100vw;
+    height: 100vh;
+
+    backdrop-filter: blur(50px);
+    opacity: 0.4;
+    background: ${theme.colors.main_text_color} 0% 0% no-repeat padding-box;
   `
 );
 
