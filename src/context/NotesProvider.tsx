@@ -8,23 +8,25 @@ export function NotesProvider({ children }: INotesProviderProps) {
 
   const providerValue = {
     notes: notes,
+    createNoteTemplate: createNoteTemplate,
     createNewNote: createNewNote,
     editNote: editNote,
     deleteNote: deleteNote,
   };
 
-  function createNewNote({ category, title, description }: INotes) {
-    setNotes([
-      ...notes,
-      {
-        id: new Date().getTime(),
-        category: category,
-        title: title,
-        description: description,
-        createdAt: new Date(),
-        isChecked: false,
-      },
-    ]);
+  function createNoteTemplate() {
+    return {
+      id: new Date().getTime(),
+      category: "Home",
+      title: "",
+      description: "",
+      createdAt: new Date(),
+      isChecked: false,
+    };
+  }
+
+  function createNewNote(data: INotes) {
+    setNotes([...notes, data]);
   }
 
   function editNote(id: INotes["id"], updatedNote: INotes) {
@@ -87,6 +89,7 @@ export function NotesProvider({ children }: INotesProviderProps) {
 
 interface INotesProviderValue {
   notes: INotes[];
+  createNoteTemplate: () => INotes;
   createNewNote({ id, category, title, description }: INotes): void;
   editNote: (id: INotes["id"], updatedNote: INotes) => void;
   deleteNote: (id: INotes["id"]) => void;

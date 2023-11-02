@@ -6,8 +6,9 @@ import * as S from "./styles";
 import Arrow from "@assets/back-up-down.svg";
 
 export function Modal() {
-  const { isOpen, modalData, closeModal, setModalData } = useModal();
-  const { editNote } = useNotes();
+  const { isOpen, isNoteCreation, modalData, closeModal, setModalData } =
+    useModal();
+  const { editNote, createNewNote } = useNotes();
 
   function handleCloseModal() {
     closeModal();
@@ -24,7 +25,12 @@ export function Modal() {
   }
 
   function handleSaveNote() {
-    editNote(modalData.id, modalData);
+    if (isNoteCreation) {
+      createNewNote(modalData);
+    } else {
+      editNote(modalData.id, modalData);
+    }
+
     closeModal();
   }
 

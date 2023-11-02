@@ -5,10 +5,14 @@ export const ModalContext = createContext({} as IContextProviderValue);
 export const ModalProvider = ({ children }: IContextProviderProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [modalData, setModalData] = useState<INotes>({} as INotes);
+  const [isNoteCreation, setIsNoteCreation] = useState(false);
 
+  function openModal(data: INotes, isNoteCreation: boolean | undefined) {
+    if (data) {
+      setModalData(data);
+    }
 
-  function openModal(data: INotes) {
-    setModalData(data);
+    setIsNoteCreation(Boolean(isNoteCreation));
     setIsOpen(true);
   }
 
@@ -19,7 +23,14 @@ export const ModalProvider = ({ children }: IContextProviderProps) => {
 
   return (
     <ModalContext.Provider
-      value={{ isOpen, modalData, setModalData, openModal, closeModal }}
+      value={{
+        isOpen,
+        isNoteCreation,
+        modalData,
+        setModalData,
+        openModal,
+        closeModal,
+      }}
     >
       {children}
     </ModalContext.Provider>
@@ -30,9 +41,10 @@ export default ModalProvider;
 
 interface IContextProviderValue {
   isOpen: boolean;
+  isNoteCreation: boolean;
   modalData: INotes;
   setModalData: React.Dispatch<React.SetStateAction<INotes>>;
-  openModal: (data: INotes) => void;
+  openModal: (data: INotes, isNoteCreation?: boolean) => void;
   closeModal: () => void;
 }
 

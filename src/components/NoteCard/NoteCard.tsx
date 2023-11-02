@@ -51,7 +51,7 @@ export function NoteCard({
 }
 
 type NoteCardProps = INotes & {
-  handleEdit: (data: INotes) => void;
+  handleEdit: (data: INotes, isNoteCreation?: boolean) => void;
   handleDelete: (id: INotes["id"]) => void;
   handleToggleCheckbox: (id: INotes["id"], updatedNote: INotes) => void;
 };
