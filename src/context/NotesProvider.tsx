@@ -69,12 +69,6 @@ export function NotesProvider({ children }: INotesProviderProps) {
         newArrayOfNotes[newIndex] = notes[i];
         newIndex++;
       }
-
-      console.table({
-        index: i,
-        state: notes[i],
-        newState: newArrayOfNotes[i],
-      });
     }
 
     setNotes(newArrayOfNotes);
