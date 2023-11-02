@@ -17,7 +17,7 @@ export function NotesProvider({ children }: INotesProviderProps) {
     setNotes([
       ...notes,
       {
-        id: notes.length,
+        id: new Date().getTime(),
         category: category,
         title: title,
         description: description,
