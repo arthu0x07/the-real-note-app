@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import { useDebounce } from "@hooks/useDebounce";
+import { useFilter } from "@hooks/useFilter";
 
 import { ContainerInput, SearchImage, PlaceHolder, Input } from "./styles";
 import Search from "@assets/search.svg";
@@ -7,7 +8,9 @@ import Search from "@assets/search.svg";
 export function SearchInput() {
   const [isInputActive, setIsInputActive] = useState<boolean>(false);
   const [inputSearchText, setInputSearchText] = useState<string>("");
-  const debouncedHandleSearch = useDebounce(handleSearch, 2000);
+
+  const debouncedHandleSearch = useDebounce(handleSearch, 1000);
+  const { handleFilterByTitle } = useFilter();
 
   function handleActiveInput() {
     setIsInputActive(true);
@@ -15,7 +18,7 @@ export function SearchInput() {
 
   function handleInputBlur() {
     handleDisableInput();
-    handleSearch(); 
+    handleSearch();
 
     function handleDisableInput() {
       Boolean(!inputSearchText) && setIsInputActive(false);
@@ -23,11 +26,15 @@ export function SearchInput() {
   }
 
   function handleSearch() {
-    //Make search
+    handleFilterByTitle(inputSearchText);
   }
 
   const handleInputOnchange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (String(e.target.value) === "") {
+        handleSearch();
+      }
+
       setInputSearchText(e.target.value);
       debouncedHandleSearch();
     },

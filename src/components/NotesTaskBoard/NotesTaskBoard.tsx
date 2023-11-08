@@ -1,19 +1,23 @@
 import * as S from "./styles";
 import { NoteCard } from "components/NoteCard";
+
 import { useNotes } from "@hooks/useNotes";
-import { useModal } from "hooks/useModal";
+import { useModal } from "@hooks/useModal";
+import { useFilter } from "@hooks/useFilter";
 
 export function NotesTaskBoard() {
-  const { notes, deleteNote, editNote } = useNotes();
   const { openModal } = useModal();
+  const { deleteNote, editNote } = useNotes();
+  const { filteredNotes } = useFilter();
 
   return (
     <S.NotesTaskBoardContainer>
       {(() => {
         const renderedNotes = [];
 
-        for (let i = 0; i < notes.length; i++) {
-          const { id, category, title, description, isChecked, createdAt } = notes[i];
+        for (let i = 0; i < filteredNotes?.length; i++) {
+          const { id, category, title, description, isChecked, createdAt } =
+            filteredNotes[i];
 
           renderedNotes[renderedNotes.length] = (
             <NoteCard
