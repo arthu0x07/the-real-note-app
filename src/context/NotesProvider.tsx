@@ -1,10 +1,17 @@
-import { createContext, useState } from "react";
-import { mockNotes } from "@mocks/notes";
+import { createContext, useEffect, useState } from "react";
 
 export const NotesContext = createContext({} as INotesProviderValue);
 
 export function NotesProvider({ children }: INotesProviderProps) {
-  const [notes, setNotes] = useState<INotes[]>(mockNotes);
+  useEffect(() => {
+    const storedNotes = localStorage.getItem("notes");
+
+    if (storedNotes != null || storedNotes != undefined) {
+      setNotes(JSON.parse(storedNotes));
+    }
+  }, []);
+
+  const [notes, setNotes] = useState<INotes[]>([] as INotes[]);
 
   const providerValue = {
     notes: notes,
@@ -73,6 +80,14 @@ export function NotesProvider({ children }: INotesProviderProps) {
 
     setNotes(newArrayOfNotes);
   }
+
+  useEffect(() => {
+    if (notes.length > 0) {
+      localStorage.setItem("notes", JSON.stringify(notes));
+    } else {
+      localStorage.removeItem("notes"); // Remove os dados do localStorage
+    }
+  }, [notes]);
 
   return (
     <NotesContext.Provider value={providerValue}>
