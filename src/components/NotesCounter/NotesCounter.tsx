@@ -9,7 +9,7 @@ export function NotesCounter() {
   useEffect(() => {
     let countCardsChecked = 0;
 
-    for (let i = 0; i < notes.length; i++) {
+    for (let i = 0; i < notes?.length; i++) {
       if (notes[i].isChecked) {
         countCardsChecked++;
       }
@@ -18,7 +18,7 @@ export function NotesCounter() {
     setCheckedCardsCount(countCardsChecked);
   }, [notes]);
 
-  const progressNotes: string = `${checkedCardsCount}/${notes.length}`;
+  const progressNotes: string = `${checkedCardsCount}/${notes?.length}`;
 
   return (
     <S.NotesCounterContainer>
@@ -27,7 +27,7 @@ export function NotesCounter() {
       <S.ProgressBarContainer>
         <S.BackgroundDefaultProgressBar />
         <S.BackgroundPercentProgressBar
-          percent={(Number(checkedCardsCount) / notes.length) * 100}
+          percent={(Number(checkedCardsCount) / notes?.length) * 100}
         />
       </S.ProgressBarContainer>
     </S.NotesCounterContainer>
