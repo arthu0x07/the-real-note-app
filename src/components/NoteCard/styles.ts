@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import theme from "theme/theme";
+import theme from "@theme/theme";
 import CategoryColorEnum from "types/CategoryColors";
 
 export const ContainerCardNotes = styled.div<IContainerCardNotes>(
@@ -35,7 +35,7 @@ export const ImagesButtons = styled.img`
 export const TitleCard = styled.h2<{ isChecked?: boolean }>(
   ({ isChecked = false }) => css`
     font-weight: 500;
-    color: ${theme.colors.secondary_text_color};
+    color: ${theme.colors?.secondary_text_color};
     font-size: 2rem;
     letter-spacing: 0px;
     text-decoration: ${isChecked ? "line-through" : "none"};
@@ -56,7 +56,7 @@ export const DescriptionCard = styled.p<{ isChecked?: boolean }>(
   ({ isChecked = false }) => css`
     width: 100%;
     font-weight: 400;
-    color: ${theme.colors.secondary_text_color};
+    color: ${theme.colors?.secondary_text_color};
     font-size: 1.4rem;
     letter-spacing: 0px;
     margin-top: 0.8rem;
@@ -74,7 +74,7 @@ export const DescriptionCard = styled.p<{ isChecked?: boolean }>(
 export const DateCard = styled.p<{ isChecked?: boolean }>(
   ({ isChecked = false }) => css`
     font-weight: 400;
-    color: ${theme.colors.secondary_text_color};
+    color: ${theme.colors?.secondary_text_color};
     font-size: 1.5rem;
     letter-spacing: 0px;
     margin-top: 1.2rem;

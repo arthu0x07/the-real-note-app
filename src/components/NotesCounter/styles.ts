@@ -14,7 +14,7 @@ export const TitleCounter = styled.h2(
     font-size: 1.8rem;
     letter-spacing: 0px;
     font-weight: 500;
-    color: ${theme.colors.main_text_color};
+    color: ${theme.colors?.main_text_color};
   `
 );
 
@@ -34,7 +34,7 @@ export const BackgroundDefaultProgressBar = styled.div(
   () => css`
     width: 100%;
     height: 100%;
-    background-color: ${theme.colors.highlight_bg_color};
+    background-color: ${theme.colors?.highlight_bg_color};
     opacity: 0.24;
     position: absolute;
     z-index: 1;
@@ -46,7 +46,7 @@ export const BackgroundPercentProgressBar =
     ({ percent = 50 }) => css`
       width: ${percent}%;
       height: 100%;
-      background-color: ${theme.colors.highlight_bg_color};
+      background-color: ${theme.colors?.highlight_bg_color};
       opacity: 1;
       position: absolute;
       z-index: 2;

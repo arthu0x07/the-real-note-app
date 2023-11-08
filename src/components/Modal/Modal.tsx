@@ -59,14 +59,14 @@ export function Modal() {
             <S.ContainerShadowDropdown>
               <S.ContainerDropDown>
                 <S.SelectedItem>
-                  <h2>{modalData.category}</h2>
+                  <h2>{modalData?.category}</h2>
                 </S.SelectedItem>
                 <S.ArrowImage src={Arrow} />
               </S.ContainerDropDown>
 
               <S.Option className="options">
                 <S.CategoryButton
-                  isActive={modalData.category === "Home"}
+                  isActive={modalData?.category === "Home"}
                   onClick={({ target }) =>
                     handleChangeModalData(target, "category")
                   }
@@ -74,7 +74,7 @@ export function Modal() {
                   Home
                 </S.CategoryButton>
                 <S.CategoryButton
-                  isActive={modalData.category === "Work"}
+                  isActive={modalData?.category === "Work"}
                   onClick={({ target }) =>
                     handleChangeModalData(target, "category")
                   }
@@ -82,7 +82,7 @@ export function Modal() {
                   Work
                 </S.CategoryButton>
                 <S.CategoryButton
-                  isActive={modalData.category === "Personal"}
+                  isActive={modalData?.category === "Personal"}
                   onClick={({ target }) =>
                     handleChangeModalData(target, "category")
                   }

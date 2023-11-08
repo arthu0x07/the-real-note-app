@@ -1,7 +1,7 @@
 import * as S from "./styles";
 import PlusImage from "@assets/plus.svg";
-import { useNotes } from "hooks/useNotes";
-import { useModal } from "hooks/useModal";
+import { useNotes } from "@hooks/useNotes";
+import { useModal } from "@hooks/useModal";
 
 export function ButtonAddNote() {
   const { openModal } = useModal();

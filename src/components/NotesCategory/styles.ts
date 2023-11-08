@@ -28,8 +28,8 @@ export const TitleCategory = styled.h2<ITitleCategory>(
     font-weight: normal;
     letter-spacing: 0;
     color: ${isActive
-      ? theme.colors.secondary_text_color
-      : theme.colors.main_text_color};
+      ? theme.colors?.secondary_text_color
+      : theme.colors?.main_text_color};
     opacity: 1;
   `
 );

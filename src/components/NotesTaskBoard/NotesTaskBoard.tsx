@@ -1,5 +1,5 @@
 import * as S from "./styles";
-import { NoteCard } from "components/NoteCard";
+import { NoteCard } from "@components/NoteCard";
 
 import { useNotes } from "@hooks/useNotes";
 import { useModal } from "@hooks/useModal";

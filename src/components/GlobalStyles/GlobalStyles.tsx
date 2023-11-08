@@ -27,7 +27,7 @@ export const GlobalStyles = createGlobalStyle`
     dialog::backdrop {
         backdrop-filter: blur(50px);
     opacity: 0.4;
-    background: ${theme.colors.main_text_color} 0% 0% no-repeat padding-box;
+    background: ${theme.colors?.main_text_color} 0% 0% no-repeat padding-box;
 }
 
 `;

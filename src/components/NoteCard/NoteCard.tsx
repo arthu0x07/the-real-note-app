@@ -4,7 +4,7 @@ import EmptyCheckbox from "@assets/empty-checkbox.svg";
 import FillCheckbox from "@assets/fill-checkbox.svg";
 import Edit from "@assets/edit.svg";
 import Trash from "@assets/trash.svg";
-import { DateToMaskDate } from "utils/data";
+import { DateToMaskDate } from "@utils/data";
 
 export function NoteCard({
   id,

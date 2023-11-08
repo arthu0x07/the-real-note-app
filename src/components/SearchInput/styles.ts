@@ -9,8 +9,8 @@ export const ContainerInput = styled.section(
     align-items: center;
     position: relative;
     z-index: 1;
-    background-color: ${theme.colors.secondary_bg_color};
-    box-shadow: 0px 3px 6px ${theme.colors.highlight_shadow_color};
+    background-color: ${theme.colors?.secondary_bg_color};
+    box-shadow: 0px 3px 6px ${theme.colors?.highlight_shadow_color};
   `
 );
 
@@ -30,7 +30,7 @@ export const PlaceHolder = styled.label(
     z-index: 1;
     font-size: 18px;
     opacity: 0.6;
-    color: ${theme.colors.main_text_color};
+    color: ${theme.colors?.main_text_color};
   `
 );
 

@@ -3,14 +3,14 @@ import styled, { css } from "styled-components";
 const InputStyle = css`
   width: 100%;
   height: 44px;
-  background-color: ${({ theme }) => theme.colors.modal_bg_input_color};
+  background-color: ${({ theme }) => theme.colors?.modal_bg_input_color};
 
   border-radius: 4px 4px 0px 0px;
   border: none;
 
   font-size: 1.6rem;
   font-weight: 500;
-  color: ${({ theme }) => theme.colors.main_text_color};
+  color: ${({ theme }) => theme.colors?.main_text_color};
 `;
 
 export const ModalContainer = styled.dialog(
@@ -25,7 +25,7 @@ export const ModalContainer = styled.dialog(
     z-index: 4;
 
     border: none !important;
-    box-shadow: 0px 3px 6px ${theme.colors.highlight_shadow_color};
+    box-shadow: 0px 3px 6px ${theme.colors?.highlight_shadow_color};
   `
 );
 
@@ -41,7 +41,7 @@ export const BackdropContainer = styled.div(
 
     backdrop-filter: blur(50px);
     opacity: 0.4;
-    background: ${theme.colors.main_text_color} 0% 0% no-repeat padding-box;
+    background: ${theme.colors?.main_text_color} 0% 0% no-repeat padding-box;
   `
 );
 
@@ -55,7 +55,7 @@ export const HeaderModal = styled.div(
 
     padding: 1.7rem 3.4rem;
 
-    border-bottom: 1px solid ${theme.colors.highlight_shadow_color};
+    border-bottom: 1px solid ${theme.colors?.highlight_shadow_color};
   `
 );
 
@@ -64,7 +64,7 @@ export const TitleModal = styled.h2(
     font-size: 2.4rem;
     letter-spacing: 0px;
     font-weight: 400;
-    color: ${theme.colors.main_text_color};
+    color: ${theme.colors?.main_text_color};
     opacity: 0.8;
   `
 );
@@ -139,7 +139,7 @@ export const SelectedItem = styled.div(
       font-size: 1.4rem;
       letter-spacing: 0px;
       font-weight: 400;
-      color: ${theme.colors.main_text_color};
+      color: ${theme.colors?.main_text_color};
     }
   `
 );
@@ -167,17 +167,17 @@ export const CategoryButton = styled.button<{ isActive: boolean }>(
     font-size: 1.4rem;
     letter-spacing: 0px;
     font-weight: 400;
-    color: ${theme.colors.main_text_color};
+    color: ${theme.colors?.main_text_color};
 
     transition: background-color 0.5s ease-out;
     text-decoration: none;
     background-color: transparent;
 
     background-color: ${isActive &&
-    theme.colors.modal_bg_input_highlight_color};
+    theme.colors?.modal_bg_input_highlight_color};
 
     &:hover {
-      background-color: ${theme.colors.modal_bg_input_highlight_color};
+      background-color: ${theme.colors?.modal_bg_input_highlight_color};
     }
 
     &:last-child {
@@ -204,14 +204,14 @@ export const ContainerActions = styled.div(
       font-family: "Roboto";
       font-weight: 500;
       letter-spacing: 1px;
-      color: ${theme.colors.actions_text_color};
+      color: ${theme.colors?.actions_text_color};
       text-transform: uppercase;
       background-color: transparent;
       padding: 0.6rem 1.6rem;
       transition: background-color 0.5s ease-out;
 
       &:hover {
-        background-color: ${theme.colors.modal_bg_input_highlight_color};
+        background-color: ${theme.colors?.modal_bg_input_highlight_color};
       }
     }
   `
