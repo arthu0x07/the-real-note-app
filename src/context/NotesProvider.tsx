@@ -85,7 +85,7 @@ export function NotesProvider({ children }: INotesProviderProps) {
     if (notes.length > 0) {
       localStorage.setItem("notes", JSON.stringify(notes));
     } else {
-      localStorage.removeItem("notes"); // Remove os dados do localStorage
+      localStorage.removeItem("notes");
     }
   }, [notes]);
 
