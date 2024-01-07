@@ -5,8 +5,7 @@ export const NotesTaskBoardContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
-  gap: 2.4rem 1.6rem;
+  gap: 1rem;
   margin-top: 2.4rem;
 `;

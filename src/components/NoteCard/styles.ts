@@ -7,7 +7,6 @@ export const ContainerCardNotes = styled.div<IContainerCardNotes>(
     flex-basis: 49%;
     flex-shrink: 1;
     flex-grow: 1;
-    max-width: 49%;
     padding: 2rem 1.6rem;
     border-radius: 0.4rem;
     background-color: ${CategoryColorEnum[category]};
@@ -40,14 +39,22 @@ export const TitleCard = styled.h2<{ isChecked?: boolean }>(
     letter-spacing: 0px;
     text-decoration: ${isChecked ? "line-through" : "none"};
     opacity: ${isChecked ? 0.8 : 1};
+
+    width: 65%;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   `
 );
 
 export const ContainerOptions = styled.div`
   display: flex;
-  justify-content: space-between;
+  width: 25%;
+  justify-content: flex-end;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   position: absolute;
   right: 0;
 `;
