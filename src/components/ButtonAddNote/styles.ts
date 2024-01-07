@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { mediaQueries } from "styles/mediaQueries";
 
 export const ContainerButtonAddNote = styled.div(
   ({ theme }) => css`
@@ -10,6 +11,10 @@ export const ContainerButtonAddNote = styled.div(
     background-color: ${theme.colors?.highlight_bg_color};
     border-radius: 4px;
     cursor: pointer;
+
+    @media ${mediaQueries.medium} {
+      flex-grow: 1;
+    }
   `
 );
 
