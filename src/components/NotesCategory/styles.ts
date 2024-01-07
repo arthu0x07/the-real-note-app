@@ -1,11 +1,18 @@
 import styled, { css } from "styled-components";
 import theme from "@theme/theme";
 import CategoryColorEnum from "types/CategoryColors";
+import { mediaQueries } from "styles/mediaQueries";
 
 export const ContainerNotesCategory = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+
+  @media ${mediaQueries.small} {
+    justify-content: space-between;
+    width: 100%;
+    flex-grow: 1;
+  }
 `;
 
 export const ContainerButtonCategory = styled.div<IContainerButtonCategory>(

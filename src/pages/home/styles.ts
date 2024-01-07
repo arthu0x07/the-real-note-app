@@ -15,7 +15,8 @@ export const ContainerSubFilter = styled.section`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
   margin-top: 2.3rem;
-
   width: 100%;
 `;

@@ -12,7 +12,7 @@ export const ContainerButtonAddNote = styled.div(
     border-radius: 4px;
     cursor: pointer;
 
-    @media ${mediaQueries.medium} {
+    @media ${mediaQueries.small} {
       flex-grow: 1;
     }
   `
