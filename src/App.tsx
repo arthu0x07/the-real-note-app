@@ -5,6 +5,7 @@ import { Wrapper } from "@components/Wrapper";
 import { GlobalStyles } from "@components/GlobalStyles";
 import { ModalProvider } from "@context/ModalProvider";
 import { NotesProvider } from "@context/NotesProvider.tsx";
+import { FilterProvider } from "@context/FilterProvider";
 
 import theme from "theme/theme.ts";
 
@@ -12,12 +13,14 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <NotesProvider>
-        <ModalProvider>
-          <Wrapper>
-            <Home />
-          </Wrapper>
-          <GlobalStyles />
-        </ModalProvider>
+        <FilterProvider>
+          <ModalProvider>
+            <Wrapper>
+              <Home />
+            </Wrapper>
+            <GlobalStyles />
+          </ModalProvider>
+        </FilterProvider>
       </NotesProvider>
     </ThemeProvider>
   );

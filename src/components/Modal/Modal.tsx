@@ -6,8 +6,9 @@ import * as S from "./styles";
 import Arrow from "@assets/back-up-down.svg";
 
 export function Modal() {
-  const { isOpen, modalData, closeModal, setModalData } = useModal();
-  const { editNote } = useNotes();
+  const { isOpen, isNoteCreation, modalData, closeModal, setModalData } =
+    useModal();
+  const { editNote, createNewNote } = useNotes();
 
   function handleCloseModal() {
     closeModal();
@@ -24,7 +25,12 @@ export function Modal() {
   }
 
   function handleSaveNote() {
-    editNote(modalData.id, modalData);
+    if (isNoteCreation) {
+      createNewNote(modalData);
+    } else {
+      editNote(modalData.id, modalData);
+    }
+
     closeModal();
   }
 
@@ -53,14 +59,14 @@ export function Modal() {
             <S.ContainerShadowDropdown>
               <S.ContainerDropDown>
                 <S.SelectedItem>
-                  <h2>{modalData.category}</h2>
+                  <h2>{modalData?.category}</h2>
                 </S.SelectedItem>
                 <S.ArrowImage src={Arrow} />
               </S.ContainerDropDown>
 
               <S.Option className="options">
                 <S.CategoryButton
-                  isActive={modalData.category === "Home"}
+                  isActive={modalData?.category === "Home"}
                   onClick={({ target }) =>
                     handleChangeModalData(target, "category")
                   }
@@ -68,7 +74,7 @@ export function Modal() {
                   Home
                 </S.CategoryButton>
                 <S.CategoryButton
-                  isActive={modalData.category === "Work"}
+                  isActive={modalData?.category === "Work"}
                   onClick={({ target }) =>
                     handleChangeModalData(target, "category")
                   }
@@ -76,7 +82,7 @@ export function Modal() {
                   Work
                 </S.CategoryButton>
                 <S.CategoryButton
-                  isActive={modalData.category === "Personal"}
+                  isActive={modalData?.category === "Personal"}
                   onClick={({ target }) =>
                     handleChangeModalData(target, "category")
                   }

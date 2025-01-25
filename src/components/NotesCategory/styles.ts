@@ -1,11 +1,18 @@
 import styled, { css } from "styled-components";
 import theme from "@theme/theme";
 import CategoryColorEnum from "types/CategoryColors";
+import { mediaQueries } from "styles/mediaQueries";
 
 export const ContainerNotesCategory = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+
+  @media ${mediaQueries.small} {
+    justify-content: space-between;
+    width: 100%;
+    flex-grow: 1;
+  }
 `;
 
 export const ContainerButtonCategory = styled.div<IContainerButtonCategory>(
@@ -28,8 +35,8 @@ export const TitleCategory = styled.h2<ITitleCategory>(
     font-weight: normal;
     letter-spacing: 0;
     color: ${isActive
-      ? theme.colors.secondary_text_color
-      : theme.colors.main_text_color};
+      ? theme.colors?.secondary_text_color
+      : theme.colors?.main_text_color};
     opacity: 1;
   `
 );

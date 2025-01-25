@@ -1,30 +1,39 @@
-import { createContext, useState } from "react";
-import { mockNotes } from "@mocks/notes";
+import { createContext, useEffect, useState } from "react";
 
 export const NotesContext = createContext({} as INotesProviderValue);
 
 export function NotesProvider({ children }: INotesProviderProps) {
-  const [notes, setNotes] = useState<INotes[]>(mockNotes);
+  useEffect(() => {
+    const storedNotes = localStorage.getItem("notes");
+
+    if (storedNotes != null || storedNotes != undefined) {
+      setNotes(JSON.parse(storedNotes));
+    }
+  }, []);
+
+  const [notes, setNotes] = useState<INotes[]>([] as INotes[]);
 
   const providerValue = {
     notes: notes,
+    createNoteTemplate: createNoteTemplate,
     createNewNote: createNewNote,
     editNote: editNote,
     deleteNote: deleteNote,
   };
 
-  function createNewNote({ category, title, description }: INotes) {
-    setNotes([
-      ...notes,
-      {
-        id: notes.length,
-        category: category,
-        title: title,
-        description: description,
-        createdAt: new Date(),
-        isChecked: false,
-      },
-    ]);
+  function createNoteTemplate() {
+    return {
+      id: new Date().getTime(),
+      category: "Home",
+      title: "",
+      description: "",
+      createdAt: new Date(),
+      isChecked: false,
+    };
+  }
+
+  function createNewNote(data: INotes) {
+    setNotes([...notes, data]);
   }
 
   function editNote(id: INotes["id"], updatedNote: INotes) {
@@ -67,16 +76,18 @@ export function NotesProvider({ children }: INotesProviderProps) {
         newArrayOfNotes[newIndex] = notes[i];
         newIndex++;
       }
-
-      console.table({
-        index: i,
-        state: notes[i],
-        newState: newArrayOfNotes[i],
-      });
     }
 
     setNotes(newArrayOfNotes);
   }
+
+  useEffect(() => {
+    if (notes.length > 0) {
+      localStorage.setItem("notes", JSON.stringify(notes));
+    } else {
+      localStorage.removeItem("notes");
+    }
+  }, [notes]);
 
   return (
     <NotesContext.Provider value={providerValue}>
@@ -87,6 +98,7 @@ export function NotesProvider({ children }: INotesProviderProps) {
 
 interface INotesProviderValue {
   notes: INotes[];
+  createNoteTemplate: () => INotes;
   createNewNote({ id, category, title, description }: INotes): void;
   editNote: (id: INotes["id"], updatedNote: INotes) => void;
   deleteNote: (id: INotes["id"]) => void;

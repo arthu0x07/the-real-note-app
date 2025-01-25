@@ -1,12 +1,16 @@
 import { MouseEventHandler, useState } from "react";
 import * as S from "./styles";
+import { useFilter } from "@hooks/useFilter";
 
 export function NotesCategory() {
+  const { handleFilterByCategory } = useFilter();
+
   const selectCategory = (selectedCategory: string = "") => {
+    handleFilterByCategory(selectedCategory);
     setSelectedCategory(selectedCategory);
   };
 
-  const [selectedCategory, setSelectedCategory] = useState<string>("Home");
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
   return (
     <S.ContainerNotesCategory>

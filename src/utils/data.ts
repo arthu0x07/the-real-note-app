@@ -16,9 +16,10 @@ const months = [
 export function DateToMaskDate(data?: Date) {
   if (!data) return;
 
+
   const formatedDate = `${
-    months[data?.getMonth()]
-  } ${data?.getDate()}, ${data?.getFullYear()}`;
+    months[new Date(data)?.getMonth()]
+  } ${new Date(data)?.getDate()}, ${new Date(data)?.getFullYear()}`;
 
   return formatedDate;
 }
